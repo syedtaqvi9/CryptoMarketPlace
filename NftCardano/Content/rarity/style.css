@@ -1,0 +1,71 @@
+.navbar-nav {
+  	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #4a4a4a;
+}
+
+.font-rate{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	font-size: 13px;
+}
+
+.trending-coins{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	font-size: 24px;
+	color: #4a4a4a;
+}
+
+.newsletter-fonts{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	font-size: 30px;
+	color: #000;
+	font-weight: 400;
+}
+
+.newsletter-font-p{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	color: #8A7B8F;
+	font-weight: 400;
+}
+
+.footer-heading{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	color: #000;
+	font-size: 18px;
+}
+
+.footer-links{
+
+	color: #626F86;
+
+}
+
+
+.list-unstyled {
+    line-height: 39px;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	color: #626F86;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.table-heading {
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
+	color: #626F86;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.badge-secondary {
+    color: #57B662;
+    background-color: #F0F5E9;
+}
+
+a:hover{
+	text-decoration: none;
+}
+

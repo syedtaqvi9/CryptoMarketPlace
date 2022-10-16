@@ -1,0 +1,270 @@
+﻿@model NftCardano.HelpingClasses.RECaptcha
+
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<style>
+    .me-banner {
+        background: url(../Content/assets/images/chameleon-background.jpg) 50% 0px no-repeat;
+        /*background: url(../Content/assets/images/chameleon-background.jpg) 50% 10px no-repeat fixed;*/
+        background-size: cover;
+        height: fit-content
+    }
+</style>
+<div class="me-banner" @*style="background-image: url('../Content/assets/images/chameleon-background.jpg'); background-size: 100% auto;"*@>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="me-banner-form">
+                    <div class="me-banner-form-bg" @*style="background: rgb(173 177 178 / 50%);"*@>
+                        <h1 style="color:white">Handmade 3D art of collectible NFT chameleons!</h1>
+                        <p style="font-size: 20px; line-height: 28px; font-weight: 500; color:white">Every week 20 handmade chameleons are released to new homes. Will you be the next one to take one home?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!--<div class="container-fluid px-5 pt-5 pb-4">
+    <div class="row pb-3" style="background-color: #AD58A4; border-radius:10px;">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center" align="center"><img src="ViewBag.NftlibImage" width="380"></div>-->
+@*<div class="d-flex justify-content-center" align="center"><img src="~/Content/assets/images/1.png" width="380"></div>*@
+<!--<h4 align="center">-->@*@ViewBag.NftlibName #@ViewBag.NftlibId*@
+<!--</h4>
+<p align="center"><a href="" style="text-decoration: none; color: white;">-->
+@*Alien Astronaut*@
+<!--</a></p>
+<br>
+<br>
+<center class="col-sm-12 col-lg-12 col-xl-12 col-md-12">-->
+@*<button type="button" class="btn btn-outline-dark" style="word-wrap:break-word;"><b style="color: white;">Owner: </b> addr1v9a5c8qs6rwvzwg7d4lfuxs6cfcq34ygvkt2xf894284a7q8pwn4z  </button>*@
+<!--</center>
+            <br>
+        </div>
+    </div>
+</div>-->
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4  col-lg-4" style="display:none" id="paymentAddressDiv">
+            <p>payment Address: </p>  <input type="text" name="paymentAddress" id="paymentAddress" readonly> <button onclick="myFunction()" class="btn btn-outline-warning">Copy Address</button>
+            @*<p align="center">Debug: </p>  <input type="text" name="debug" align="center" id="debug" />*@
+        </div>
+        <div class="col-md-4  col-lg-4" style="display: none" id="adaToSendDiv">
+            <p>ADA To Send: </p>  <input type="text" name="adaToSend" id="adaToSend" readonly />
+        </div>
+        <div class="col-md-4  col-lg-4" style="display: none" id="expiresDiv">
+            <p>Expires: </p>  <input type="text" name="expires" id="expires" value="Expire in 10 mins" readonly />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6  col-lg-6" style="display: none" id="errorMessageDiv">
+            <p>Error Message: </p>  <input type="text" name="errorMessage" id="errorMessage" readonly />
+        </div>
+        <div class="col-md-6  col-lg-6" style="display: none" id="resultStateDiv">
+            <p>Result State: </p>  <input type="text" name="resultState" id="resultState" readonly />
+        </div>
+    </div>
+</div>
+
+<div class="container" id="checkboces" style="display:none">
+    <br>
+    <hr>
+    <h5 align="center"><b> Check Address:</b></h5>
+    <hr>
+    <div class="row">
+        <div class="col-md-4  col-lg-4">
+            <p>State: </p>  <input type="text" name="state" id="state" readonly>
+        </div>
+        <div class="col-md-4  col-lg-4">
+            <p>Love lace: </p>  <input type="text" name="lovelace" id="lovelace" readonly />
+        </div>
+        <div class="col-md-4  col-lg-4">
+            <p>Has To Pay(ADA): </p>  <input type="text" name="hasToPay" id="hasToPay" readonly />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4  col-lg-4">
+            <p>Expires DateTime: </p>  <input type="text" name="expiresDateTime" value="Expire in 10 mins" id="expiresDateTime" readonly />
+        </div>
+        <div class="col-md-4  col-lg-4">
+            <p>transaction: </p>  <input type="text" name="transaction" id="transaction" readonly />
+        </div>
+        <div class="col-md-4  col-lg-4">
+            <p>Sender Address: </p>  <input type="text" name="senderAddress" id="senderAddress" readonly />
+        </div>
+    </div>
+</div>
+
+
+<div class="container py-3">
+    <div class="row">
+        <div class="col-md-12">
+            @*<p align="center"><b>Buy now price:</b></p>*@
+            <input type="number" class="form-control" name="ada" id="price" placeholder="Enter the Amount in ADA" value="35" required readonly hidden>
+            <br />
+
+            <div id="dvCaptcha" class="offset-md-4">
+            </div>
+            <input type="hidden" id="hfCaptcha" />
+            <span id="rfvCaptcha" class="error" style="display:none">Captcha validation is required.</span>
+            <br />
+            <br>
+            <div align="center"><button type="button" class="btn btn-warning" id="buy" onclick="BuyFunction()" disabled>BUY NOW</button></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div align="center"><button type="button" class="btn btn-warning" id="check" onclick="CheckFunction()" disabled>Check Address</button></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function BuyFunction() {
+        var price = document.getElementById("price").value;
+        $('#checkboces').hide();
+        $('#adaToSendDiv').hide();
+        $('#expiresDiv').hide();
+        $('#paymentAddressDiv').hide();
+        if (price >= 35) {
+            $.ajax({
+                type: 'POST',
+                url: "../Home/buynft",
+                dataType: "json",
+                data: {
+                    Price: price
+                },
+                success: function (response) {
+                    $("#adaToSend").val(response.adaToSend);
+                    $("#debug").val(response.debug);
+                    $("#paymentAddress").val(response.paymentAddress);
+                    if (response.paymentAddress != null) {
+                        $('#check').prop('disabled', false);
+                        $('#adaToSendDiv').show();
+                        $('#expiresDiv').show();
+                        $('#paymentAddressDiv').show();
+                        $("#dvCaptcha").hide();
+                    }
+                    if (response.resultState != null) {
+                        $('#check').prop('disabled', true);
+                        $('#resultStateDiv').show();
+                        $('#errorMessageDiv').show();
+                    }
+                    $("#resultState").val(response.resultState);
+                    $("#errorMessage").val(response.errorMessage);
+                    $("#errorCode").val(response.errorCode);
+                },
+                error: function () {
+                    alert("ajax Failed");
+                }
+            });
+        }
+        else {
+            alert("Base Price is 35 ADA. So, put value more than base value to get your NFT");
+        }
+    }
+
+    function CheckFunction() {
+        var paymentAddress = document.getElementById("paymentAddress").value;
+        $.ajax({
+            type: 'POST',
+            url: "../Home/checknft",
+            dataType: "json",
+            data: {
+                PaymentAddress: paymentAddress
+            },
+            success: function (response) {
+                //alert(response.senderAddress);
+                $("#state").val(response.state);
+                $("#lovelace").val(response.lovelace);
+                $("#hasToPay").val(response.hasToPay);
+                $("#payDateTime").val(response.payDateTime);
+                //$("#expiresDateTime").val(response.expiresDateTime);
+                $("#transaction").val(response.transaction);
+                $("#senderAddress").val(response.senderAddress);
+
+                if (response.senderAddress != null || response.state != null || response.hasToPay != null) {
+                    $('#checkboces').show();
+                }
+
+                if (response.resultState != null) {
+                    $('#resultState').show();
+                    $('#errorMessage').show();
+                }
+                $("#resultState").val(response.resultState);
+                $("#errorMessage").val(response.errorMessage);
+                $("#errorCode").val(response.errorCode);
+            },
+            error: function () {
+                alert("ajax check Failed");
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" asyncdefer></script>
+<script type="text/javascript">
+        var onloadCallback = function () {
+            grecaptcha.render('dvCaptcha', {
+                'sitekey': '@Model.Key',
+                'callback': function (response) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/AjaxMethod",
+                        data: "{response: '" + response + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (r) {
+                            var captchaResponse = jQuery.parseJSON(r.Response);
+                            if (captchaResponse.success) {
+                                $("#hfCaptcha").val(captchaResponse.success);
+                                $("#rfvCaptcha").hide();
+                                $('#buy').prop('disabled', false);
+                            } else {
+                                $("#hfCaptcha").val("");
+                                $("#rfvCaptcha").show();
+                                var error = captchaResponse["error-codes"][0];
+                                $("#rfvCaptcha").html("RECaptcha error. " + error);
+                            }
+                        }
+                    });
+                }
+            });
+        };
+        $(function () {
+            $("#buy").click(function () {
+                $("#rfvCaptcha").hide();
+                if ($("#hfCaptcha").val() == "") {
+                    $("#rfvCaptcha").show();
+                }
+            });
+        });
+</script>
+
+<script>
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("paymentAddress");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+
+        /* Alert the copied text */
+        //    alert("Copied the text: " + copyText.value);
+    }
+</script>

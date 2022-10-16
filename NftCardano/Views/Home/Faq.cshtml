@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "FAQ's";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<!-- breadcrumb -->
+<div class="me-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="me-breadcrumb-box">
+                    <h1>Faq</h1>
+                    <p><a href="@Url.Action("Index","Home")">Home</a>Faq</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Faq single -->
+<div class="me-faq-single me-padder-top pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="me-faq-box">
+                    <div class="accordion" id="accordionExample">
+                        <div class="me-faq-list">
+                            <p class="me-faq-head me-faq-open" data-toggle="collapse" data-target="#me-faq-one">
+                                1. What wallet can I use?<button><span></span></button>
+                            </p>
+                            <div id="me-faq-one" class="collapse show" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p><u>Yoroi</u></p>
+                                    <p><u>Daedalus</u></p>
+                                    <p><u>Adalite</u>(Hardware wallet recommended)</p>
+                                    <p><b>Never send ADA from an exchange!</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="me-faq-list">
+                            <p class="me-faq-head" data-toggle="collapse" data-target="#me-faq-two">2. Where is the NFT information stored?<button><span></span></button></p>
+                            <div id="me-faq-two" class="collapse" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    The metadata for each token are on-chain. The metadata itself links to an image on IPFS and Arweave in order to keep the data immutable and retrievable forever. The metadata are in the minting transaction of the token. Check out this <a href=""><b>example.</b></a> Scroll down to the metadata and click on them to see them.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="me-faq-list">
+                            <p class="me-faq-head" data-toggle="collapse" data-target="#me-faq-three">
+                                3. What is the policy ID and when does it expire?<button><span></span></button>
+                            </p>
+                            <div id="me-faq-three" class="collapse" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>These tokens are unique forever in the future. The minting policy is time based. After a certain period of time there is no way to mint or burn anymore. So you as owner of a token can be ensured it is forever staying at quantity 1 and no one can influence that. This is what makes a token an NFT.</p>
+                                    <p><b>Policy Id:</b></p>
+                                    <p>b0b9708323e0350cd31fba93214709407b024799f290c0acfac2ef9f</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="me-faq-img">
+                    <img src="~/Content/assets/images/chameleon-main.png" width="250" class="img-fluid" alt="image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

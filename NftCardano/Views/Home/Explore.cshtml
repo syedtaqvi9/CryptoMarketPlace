@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Explore";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+@*       Filtering Section         *@
+
+@*<div class="container-fluid pt-5 px-5 d-flex justify-content-center">
+        <div class="row no-gutters mt-3">
+            <div class="col col-md-12">
+                <input class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="search" id="example-search-input2">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="pt-3" style="width: 100%; display: flex; justify-content: center;">
+                <button class="btn btn-primary mr-3"><i class="fa fa-filter pr-3"></i>Apply Filter</button>
+                <button type="button" class="btn btn-light">Reset</button>
+            </div>
+        </div>
+    </div>*@
+
+<!--<div class="container-fluid pt-5 px-5 d-flex justify-content-center">
+    <div class="row no-gutters mt-3">
+        <div class="col col-md-12 me-heading2">
+            <h1> Buy more NFTs</h1>
+        </div>-->
+        @*<div class="col-auto">
+            <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>*@
+    <!--<div class="pt-3" style="width: 100%; display: flex; justify-content: center;">
+        <div class="me-how-work-more">
+            <a href="Url.Action("Owner", "Home")" class="me-btn">Shop Now</a>
+        </div>
+    </div>
+    </div>
+</div-->
+
+<!-- Explore -->
+@{
+    if (@ViewBag.NFTcount != 0)
+    {
+        @*<div class="container-fluid pt-3 px-5 d-flex justify-content-center">
+                <div class="row no-gutters mt-3">
+                    <div style="width: 100%; display: flex;">
+                        <div class="mr-5"><b style="font-size: 16px; color: rgb(119, 119, 119);">Total SpaceBudz: </b>10,000</div>
+                        <div class="mr-5"><b style="font-size: 16px; color: rgb(119, 119, 119);">Result: </b>10,000</div>
+                        <div class="mr-5"><b style="font-size: 16px; color: rgb(119, 119, 119);"><i class="bi bi-sort-up mr-2"></i>ID #</b></div>
+                    </div>
+
+                </div>
+            </div>*@
+        <div class="container pt-5 pb-5">
+            <div class="me-heading2">
+                <h1>Recently Sold NFTs</h1>
+            </div>
+            <div class="row">
+                @{
+                    foreach (var item in ViewBag.NFT)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="me-hwork-box">
+                                <a href="#">
+                                    @*  <a href="@Url.Action("Owner", "Home", new { nftlibId = item.id, nftlibName = item.name, nftlibImage = item.gatewayLink, nftid = item.parentid })">*@
+                                    <div class="me-hwork-svg">
+                                        <img src="@item.gatewayLink" width="200">
+                                    </div>
+                                </a>
+                                <h4>Name: @item.name <br> ID: #@item.id</h4>
+                            </div>
+                        </div>
+                    }
+                }
+                @*<div class="col-lg-3 col-md-6">
+                        <div class="me-hwork-box">
+                            <a href="@Url.Action("Owner","Home")">
+                                <div class="me-hwork-svg">
+                                    <img src="~/Content/assets/images/1.png" width="200">
+                                </div>
+                            </a>
+                            <h4>SpaceBud #6201</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="me-hwork-box">
+                            <a href="@Url.Action("Owner","Home")">
+                                <div class="me-hwork-svg">
+                                    <img src="~/Content/assets/images/2.png" width="200">
+                                </div>
+                            </a>
+                            <h4>SpaceBud #6202</h4>
+                        </div>
+                    </div>
+                *@
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container pt-5 pb-5">
+            <div class="me-heading2">
+                <h1>No Sold NFT</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="me-how-work-more">
+                        <a href="@Url.Action("Owner", "Home")" class="me-btn">Buy more NFT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
